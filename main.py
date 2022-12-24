@@ -2,8 +2,10 @@ from flask import Flask, render_template,request
 
 app = Flask(__name__)
 
-@app.route("/")
+@app.route("/",methods=['GET','POST'])
 def index():
-    print(f"request的attribute method:{request.method}")
-    print(f"request的property mimetype:{request.mimetype_params}")    
     return render_template('index.html')
+
+@app.route("/name/<username>")
+def show_user(username):
+    return f"<h3>姓名:<strong>{username}</strong></h3>"
