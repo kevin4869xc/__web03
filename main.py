@@ -9,3 +9,7 @@ def index():
 @app.route("/name/<username>")
 def show_user(username):
     return f"<h3>姓名:<strong>{username}</strong></h3>"
+
+@app.route("/login")
+def login(username):
+    return render_template('login.html')
